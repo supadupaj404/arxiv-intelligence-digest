@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArXiv Intelligence Digest</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header {
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            color: #1a1a1a;
+            font-size: 28px;
+        }
+        .header .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .summary-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .summary-box h2 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .summary-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            flex: 1;
+            min-width: 120px;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .paper {
+            margin: 25px 0;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            background-color: #fff;
+        }
+        .paper.threat-high {
+            border-left: 4px solid #dc3545;
+            background-color: #fff5f5;
+        }
+        .paper.threat-medium {
+            border-left: 4px solid #ffc107;
+            background-color: #fffef5;
+        }
+        .paper.threat-low {
+            border-left: 4px solid #28a745;
+            background-color: #f5fff5;
+        }
+        .paper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .paper-title {
+            flex: 1;
+            min-width: 300px;
+        }
+        .paper-title h3 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+            color: #1a1a1a;
+        }
+        .paper-title a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .paper-title a:hover {
+            text-decoration: underline;
+        }
+        .paper-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .score-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .threat-badge {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .threat-badge.high {
+            background-color: #dc3545;
+            color: white;
+        }
+        .threat-badge.medium {
+            background-color: #ffc107;
+            color: #333;
+        }
+        .threat-badge.low {
+            background-color: #28a745;
+            color: white;
+        }
+        .paper-summary {
+            margin-top: 15px;
+            line-height: 1.7;
+        }
+        .paper-summary h4 {
+            font-size: 14px;
+            margin: 15px 0 5px 0;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .paper-summary p {
+            margin: 5px 0;
+            color: #444;
+        }
+        .action-items {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .action-items ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+        .action-items li {
+            margin: 3px 0;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 ArXiv Intelligence Digest</h1>
+            <div class="subtitle">Competitive Intelligence for Generative AI & Music</div>
+            <div class="subtitle">Collection Period: {{collectionPeriod}}</div>
+        </div>
+
+        <div class="summary-box">
+            <h2>Digest Summary</h2>
+            <div class="summary-stats">
+                <div class="stat">
+                    <div class="stat-label">Papers Included</div>
+                    <div class="stat-value">{{totalPapers}}</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">🔴 High Priority</div>
+                    <div class="stat-value">{{highPriorityCount}}</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">🟡 Medium Priority</div>
+                    <div class="stat-value">{{mediumPriorityCount}}</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">🟢 Low Priority</div>
+                    <div class="stat-value">{{lowPriorityCount}}</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 30px; color: #1a1a1a;">🚨 Top Papers (sorted by score)</h2>
+
+        {{papers}}
+
+        <div class="footer">
+            <p>Generated: {{generatedDate}} | Powered by Claude AI</p>
+            <p>Data source: <a href="https://twitter.com/ArxivSound">@ArxivSound</a> via RSS</p>
+        </div>
+    </div>
+</body>
+</html>

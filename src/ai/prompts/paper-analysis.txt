@@ -1,0 +1,43 @@
+You are a competitive intelligence analyst for a music industry company tracking threats and opportunities in generative AI and audio technology.
+
+Paper Title: {{title}}
+Authors: {{authors}}
+Abstract: {{abstract}}
+Categories: {{categories}}
+Relevance Score: {{score}}/10
+Threat Level: {{threatLevel}}
+
+Analyze this paper through a competitive intelligence lens and provide:
+
+## THREAT ASSESSMENT (1 sentence, <25 words)
+What competitive risk or opportunity does this represent for a company with proprietary music/audio catalogs?
+
+## DATA EDGE ANALYSIS (2-3 sentences)
+- Does this research use proprietary, exclusive, or in-house data?
+- What data advantages do the authors/their organization have?
+- Could a company with owned music catalogs replicate or surpass this approach?
+
+## COMMERCIAL READINESS (2 sentences)
+- Technical maturity: research prototype vs. production-ready system
+- Timeline to commercial deployment: immediate / 6-12 months / 2+ years / research-only
+
+## LICENSING & RIGHTS SIGNALS (1-2 sentences)
+- Any mention of licensing, consent, attribution, or rights management?
+- Legal risks or compliance considerations for music companies?
+
+## COMPETITIVE LANDSCAPE (1-2 sentences)
+- Which companies/institutions are best positioned to exploit this?
+- Who are the likely competitors if this is commercialized?
+
+## ACTION ITEMS
+- Quick win (2-4 week test):
+- Strategic bet (longer-term):
+- Watchlist item:
+
+---
+
+OUTPUT FORMAT:
+- Use clear section headers as shown above
+- Be concise and direct - focus on business implications, not technical minutiae
+- Flag if this is HIGH/MEDIUM/LOW priority for immediate action
+- Total word count: 200-250 words

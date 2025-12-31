@@ -1,0 +1,34 @@
+# Environment variables (NEVER commit this!)
+.env
+
+# Node modules
+node_modules/
+
+# Runtime data
+data/queue.json
+data/last-seen.json
+
+# Output files (optional - you can commit these if you want)
+output/digests/*.html
+output/digests/*.md
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test files (you may want to keep test-*.js in git, so commenting out)
+# test-*.js
+
+# PM2 process files
+.pm2/

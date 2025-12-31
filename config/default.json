@@ -1,0 +1,43 @@
+{
+  "monitor": {
+    "pollIntervalMinutes": 15,
+    "nitterInstances": [
+      "https://nitter.net/ArxivSound/rss",
+      "https://nitter.1d4.us/ArxivSound/rss",
+      "https://nitter.it/ArxivSound/rss"
+    ]
+  },
+
+  "queue": {
+    "digestThreshold": 10,
+    "maxDaysBetweenDigests": 7,
+    "minRelevanceScore": 5.0
+  },
+
+  "scoring": {
+    "weights": {
+      "domain": 1.0,
+      "generative": 1.0,
+      "dataEdge": 1.5,
+      "commercial": 1.0,
+      "categoryBoost": 0.5
+    },
+    "threatThresholds": {
+      "high": { "dataEdge": 3, "generative": 2 },
+      "medium": { "commercial": 2, "generative": 2 }
+    }
+  },
+
+  "ai": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-4-5-20250929",
+    "maxTokens": 1200,
+    "rateLimitMs": 1000
+  },
+
+  "email": {
+    "enabled": true,
+    "format": "html",
+    "maxPapersPerDigest": 10
+  }
+}

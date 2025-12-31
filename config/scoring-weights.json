@@ -1,0 +1,58 @@
+{
+  "domainKeywords": {
+    "tier1": {
+      "keywords": ["music", "musical", "song", "audio", "sound", "acoustic", "waveform"],
+      "weight": 1.0
+    },
+    "tier2": {
+      "keywords": ["stems", "multitrack", "midi", "symbolic", "melody", "harmony", "rhythm", "timbre", "pitch"],
+      "weight": 0.5
+    }
+  },
+
+  "generativeKeywords": {
+    "tier1": {
+      "keywords": ["generative", "generation", "generate", "diffusion", "transformer", "autoregressive"],
+      "weight": 1.0
+    },
+    "tier2": {
+      "keywords": ["foundation model", "text-to-audio", "text2audio", "latent", "flow", "synthesis"],
+      "weight": 0.7
+    }
+  },
+
+  "dataEdgeKeywords": {
+    "tier1_critical": {
+      "keywords": ["proprietary", "private", "in-house", "internal", "owned", "exclusive"],
+      "weight": 1.5
+    },
+    "tier2_licensing": {
+      "keywords": ["licensing", "licensed", "license", "copyright", "rights", "consent", "permission", "attribution"],
+      "weight": 1.5
+    },
+    "tier3_commercial": {
+      "keywords": ["commercial", "monetization", "monetize", "enterprise", "proprietary data"],
+      "weight": 1.0
+    },
+    "tier4_compliance": {
+      "keywords": ["gdpr", "compliance", "privacy", "confidential", "watermark", "provenance"],
+      "weight": 0.8
+    }
+  },
+
+  "commercialKeywords": {
+    "tier1": {
+      "keywords": ["industry", "production", "real-time", "scalable", "deployment"],
+      "weight": 0.8
+    },
+    "tier2": {
+      "keywords": ["startup", "platform", "service", "product", "commercial use"],
+      "weight": 0.5
+    }
+  },
+
+  "industryKeywords": {
+    "keywords": ["record label", "production music", "sync", "sample library", "splice", "catalog", "library", "a&r", "tv", "film", "advertising"],
+    "weight": 2.0
+  }
+}
