@@ -24,7 +24,7 @@ class EmailFormatter {
                 <div class="paper-title">
                     <h3>${index + 1}. <a href="${paper.arxivUrl}">${paper.title}</a></h3>
                     <div style="font-size: 13px; color: #666; margin-top: 5px;">
-                        ${paper.authors.slice(0, 3).join(', ')}${paper.authors.length > 3 ? ' et al.' : ''}
+                        ${paper.authors ? paper.authors.slice(0, 3).join(', ') + (paper.authors.length > 3 ? ' et al.' : '') : 'Authors not available'}
                     </div>
                 </div>
                 <div class="paper-meta">
@@ -39,9 +39,10 @@ class EmailFormatter {
 
             <div style="margin-top: 15px; font-size: 13px; color: #666;">
                 <strong>Links:</strong>
-                <a href="${paper.arxivUrl}" style="color: #667eea;">Abstract</a> |
-                <a href="${paper.pdfUrl}" style="color: #667eea;">PDF</a>
-                ${paper.tweetLink ? `| <a href="${paper.tweetLink}" style="color: #667eea;">Tweet</a>` : ''}
+                ${paper.arxivUrl ? `<a href="${paper.arxivUrl}" style="color: #667eea;">Abstract</a>` : ''}
+                ${paper.arxivUrl && paper.pdfUrl ? ' | ' : ''}
+                ${paper.pdfUrl ? `<a href="${paper.pdfUrl}" style="color: #667eea;">PDF</a>` : ''}
+                ${paper.tweetLink ? ` | <a href="${paper.tweetLink}" style="color: #667eea;">Tweet</a>` : ''}
             </div>
         </div>
     `;
@@ -166,7 +167,7 @@ class EmailFormatter {
 
       text += `${index + 1}. ${paper.title}\n`;
       text += `   Score: ${paper.scoring.score}/10 | Threat: ${emoji} ${paper.scoring.threatLevel}\n`;
-      text += `   Authors: ${paper.authors.slice(0, 3).join(', ')}${paper.authors.length > 3 ? ' et al.' : ''}\n`;
+      text += `   Authors: ${paper.authors ? paper.authors.slice(0, 3).join(', ') + (paper.authors.length > 3 ? ' et al.' : '') : 'Not available'}\n`;
       text += `   Links: ${paper.arxivUrl}\n\n`;
 
       if (paper.aiSummary) {

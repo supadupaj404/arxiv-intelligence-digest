@@ -90,6 +90,26 @@ class EmailSender {
     return filepath;
   }
 
+  async sendEmail({ subject, html, text }) {
+    const mailOptions = {
+      from: this.config.user,
+      to: this.config.to,
+      subject: subject,
+      html: html,
+      text: text
+    };
+
+    try {
+      console.log(`📤 Sending email to ${this.config.to}...`);
+      const result = await this.transporter.sendMail(mailOptions);
+      console.log('✓ Email sent successfully:', result.messageId);
+      return result;
+    } catch (error) {
+      console.error('✗ Email sending failed:', error.message);
+      throw error;
+    }
+  }
+
   async testConnection() {
     try {
       await this.transporter.verify();

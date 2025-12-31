@@ -36,7 +36,7 @@
   },
 
   "email": {
-    "enabled": false,
+    "enabled": true,
     "format": "html",
     "maxPapersPerDigest": 10
   }

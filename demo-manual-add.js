@@ -41,11 +41,11 @@ async function processPaper(arxivId) {
     console.log(`✓ Threat Level: ${scoring.threatLevel}`);
     console.log(`✓ Triple Match: ${scoring.tripleMatch ? 'YES' : 'NO'}`);
     console.log('\nScore Breakdown:');
-    console.log(`  - Domain: ${scoring.dimensions.domain}/3`);
-    console.log(`  - Generative: ${scoring.dimensions.generative}/3`);
-    console.log(`  - Data Edge: ${scoring.dimensions.dataEdge}/4`);
-    console.log(`  - Commercial: ${scoring.dimensions.commercial}/3`);
-    console.log(`  - Category Boost: ${scoring.dimensions.categoryBoost}/2`);
+    console.log(`  - Domain: ${scoring.breakdown.domain}/3`);
+    console.log(`  - Generative: ${scoring.breakdown.generative}/3`);
+    console.log(`  - Data Edge: ${scoring.breakdown.dataEdge}/4`);
+    console.log(`  - Commercial: ${scoring.breakdown.commercial}/3`);
+    console.log(`  - Category Boost: ${scoring.breakdown.categoryBoost}/2`);
 
     if (!scoring.isRelevant) {
       console.log(`\n✗ Paper below relevance threshold (${scoring.score} < 5.0)`);
