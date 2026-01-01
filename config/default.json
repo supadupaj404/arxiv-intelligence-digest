@@ -2,9 +2,9 @@
   "monitor": {
     "pollIntervalMinutes": 15,
     "nitterInstances": [
+      "https://nitter.privacyredirect.com/ArxivSound/rss",
       "https://nitter.net/ArxivSound/rss",
-      "https://nitter.1d4.us/ArxivSound/rss",
-      "https://nitter.it/ArxivSound/rss"
+      "https://nitter.poast.org/ArxivSound/rss"
     ]
   },
 
